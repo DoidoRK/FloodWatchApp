@@ -15,7 +15,7 @@ class SplashPage extends GetView<SplashController> {
           style: TextStyle(
             fontSize: 36,
             color: Colors.white,
-            fontFamily: 'Cursive',
+            fontFamily: 'Lobster',
           ),
         ),
       ),
