@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 final ThemeData appThemeData = ThemeData(
   primaryColor: Colors.blueAccent,
