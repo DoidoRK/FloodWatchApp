@@ -1,23 +1,5 @@
 import 'package:flutter/material.dart';
 
-// Função para dividir o nome do usuário
-String getFirstAndLastName(String fullName) {
-  List<String> nameParts = fullName.trim().split(RegExp(r'\s+'));
-
-  // Se a lista estiver vazia, retorna valores padrão
-  if (nameParts.isEmpty) {
-    return 'Nome Inválido';
-  }
-
-  // Se houver apenas um nome, retorna o mesmo para primeiro e último nome
-  if (nameParts.length == 1) {
-    return '${nameParts[0]} ${nameParts[0]}';
-  }
-
-  // Retorna o primeiro e o último nome
-  return '${nameParts.first} ${nameParts.last}';
-}
-
 class ProfileWidget extends StatelessWidget {
   final String userName;
   final String userPhotoAsset;
@@ -42,8 +24,7 @@ class ProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Dividindo o nome em primeiro e último nome
-    String firstNameLastName = getFirstAndLastName(userName);
-    List<String> nameParts = firstNameLastName.split(' ');
+    List<String> nameParts = userName.split(' ');
 
     return Scaffold(
       body: Padding(

@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
 
   final List<Widget> _pages = [
     ProfileWidget(
-      userName: "Antônio Júnior",
+      userName: "Antônio Junior",
       userPhotoAsset: 'assets/images/Thomas Shelby.png',
     ), // Exemplo de uso de asset local
     const Center(child: Text('Mapa Widget')),
