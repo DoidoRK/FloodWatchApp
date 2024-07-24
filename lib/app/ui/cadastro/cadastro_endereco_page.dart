@@ -7,6 +7,8 @@ class CadastroPageEndereco extends StatelessWidget {
   final CadastroEnderecoController cadastroController =
       Get.put(CadastroEnderecoController());
 
+  CadastroPageEndereco({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,39 +55,39 @@ class CadastroPageEndereco extends StatelessWidget {
                           labelText: 'Estado',
                           border: OutlineInputBorder(),
                         ),
-                        items: [
+                        items: const [
                           DropdownMenuItem(value: 'SP', child: Text('São Paulo')),
                           DropdownMenuItem(value: 'RJ', child: Text('Rio de Janeiro')),
                           // Adicione mais itens conforme necessário
                         ],
                         onChanged: null, // Desabilitado
-                        disabledHint: Text('RS'),
+                        disabledHint: const Text('RS'),
                       
                       ),
                     ),
                   ],
                 ),
-                 SizedBox(height: 20),
+                 const SizedBox(height: 20),
               Column(
                 children: [
-                  TextField(
-                    decoration: const InputDecoration(
+                  const TextField(
+                    decoration: InputDecoration(
                       labelText: 'Cidade',
                       border: OutlineInputBorder(),
                     ),
                     enabled: false,
                   ),
                   const SizedBox(height: 20),
-                  TextField(
-                    decoration: const InputDecoration(
+                  const TextField(
+                    decoration: InputDecoration(
                       labelText: 'Bairro',
                       border: OutlineInputBorder(),
                     ),
                     enabled: false,
                   ),
                   const SizedBox(height: 20),
-                  TextField(
-                    decoration: const InputDecoration(
+                  const TextField(
+                    decoration: InputDecoration(
                       labelText: 'Rua',
                       border: OutlineInputBorder(),
                     ),

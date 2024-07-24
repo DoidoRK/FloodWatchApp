@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flood_watch_app/app/controllers/cadastro_login_controller.dart';
 import 'package:flood_watch_app/app/ui/widgets/bottom_button_widget.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +6,8 @@ import 'package:get/get.dart';
 
 class CadastroPageLogin extends StatelessWidget {
   final CadastroLoginController cadastroController = Get.put(CadastroLoginController());
+
+  CadastroPageLogin({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class CadastroPageLogin extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             children: [
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
                   TextField(
                     keyboardType: TextInputType.datetime,
                     onChanged: (value) => cadastroController.setCpf(value),
@@ -55,7 +55,7 @@ class CadastroPageLogin extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Obx(() => TextField(
                         obscureText: cadastroController.obscureText.value,
                         onChanged: (value) => cadastroController.setSenha(value),
@@ -91,7 +91,7 @@ class CadastroPageLogin extends StatelessWidget {
                           ),
                         ),
                       )),
-                      SizedBox(height: 100),
+                      const SizedBox(height: 100),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [

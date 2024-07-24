@@ -27,7 +27,7 @@ class LoginPage extends GetView<LoginController> {
                     top: 40,
                     left: 20,
                     child: IconButton(
-                      icon: Icon(Icons.chevron_left, color: Colors.white),
+                      icon: const Icon(Icons.chevron_left, color: Colors.white),
                       iconSize: 60,
                       onPressed: () {
                         // Ação do botão de voltar
@@ -145,10 +145,10 @@ class LoginPage extends GetView<LoginController> {
                           ),
                         ),
                       )),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                   Center(child: BottomButtonWidget(text: 'Continuar',onPressed: () => {},disabled: loginController.isFormInvalid)),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'Ainda não tem cadastro?',
                     style: TextStyle(
                       color: Colors.grey,
