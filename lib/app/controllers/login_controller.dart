@@ -44,4 +44,8 @@ class LoginController extends GetxController {
   void onBack(){
     Get.back();
   }
+
+  void onNext(){
+    Get.toNamed('/cadastro');
+  }
 }

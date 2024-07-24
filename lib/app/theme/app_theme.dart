@@ -32,19 +32,21 @@ final ThemeData appThemeData = ThemeData(
   buttonTheme: const ButtonThemeData(
     textTheme: ButtonTextTheme.accent,
   ),
-  inputDecorationTheme: const InputDecorationTheme(
+  inputDecorationTheme:  InputDecorationTheme(
     suffixIconColor: Colors.blueAccent,
-    labelStyle: TextStyle(
+    labelStyle: const TextStyle(
       fontFamily: 'Montserrat Alternates',
       color: Colors.blueAccent,
     ),
     focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: const BorderSide(
         color: Colors.blueAccent,
       ),
     ),
     enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: const BorderSide(
         color: Colors.blueAccent,
       ),
     ),

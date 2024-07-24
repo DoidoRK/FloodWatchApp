@@ -36,4 +36,8 @@ class CadastroController extends GetxController {
       isFormInvalid.value = true;
     }
   }
+
+  void onBack() {
+    Get.back();
+  }
 }

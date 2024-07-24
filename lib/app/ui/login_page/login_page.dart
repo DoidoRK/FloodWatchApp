@@ -88,24 +88,8 @@ class LoginPage extends GetView<LoginController> {
                     TextField(
                       keyboardType: TextInputType.datetime,
                       onChanged: (value) => loginController.setCpf(value),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'CPF',
-                        labelStyle: TextStyle(color: appThemeData.primaryColor),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                              color: appThemeData.primaryColor, width: 2),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                              color: appThemeData.primaryColor, width: 2),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                              color: appThemeData.primaryColor, width: 2),
-                        ),
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -114,33 +98,15 @@ class LoginPage extends GetView<LoginController> {
                           onChanged: (value) => loginController.setSenha(value),
                           decoration: InputDecoration(
                             labelText: 'Senha',
-                            labelStyle:
-                                TextStyle(color: appThemeData.primaryColor),
                             suffixIcon: IconButton(
                               icon: Icon(
                                 loginController.obscureText.value
                                     ? Icons.visibility
                                     : Icons.visibility_off,
-                                color: appThemeData.primaryColor,
                               ),
                               onPressed: () {
                                 loginController.toggleObscureText();
                               },
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: appThemeData.primaryColor, width: 2),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: appThemeData.primaryColor, width: 2),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: appThemeData.primaryColor, width: 2),
                             ),
                           ),
                         )),
@@ -154,9 +120,7 @@ class LoginPage extends GetView<LoginController> {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {
-                          Get.offNamed('/cadastro');
-                      },
+                      onPressed: () => loginController.onNext(),
                       child: const Text(
                         'Cadastrar-se',
                         style: TextStyle(
