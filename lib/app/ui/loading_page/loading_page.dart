@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoadingPage extends GetView<LoadingController> {
+  const LoadingPage({super.key});
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: appThemeData.primaryColor,
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

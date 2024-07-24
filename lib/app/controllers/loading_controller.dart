@@ -10,9 +10,9 @@ class LoadingController extends GetxController {
 
   void _navigateToNextPage() async {
     // Simular um atraso para mostrar a tela de carregamento
-    await Future.delayed(Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 2));
 
     // Navegar para a tela principal (ou qualquer outra tela desejada)
-    Get.offNamed('/login');
+    Get.offAllNamed('/home');
   }
 }

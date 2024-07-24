@@ -1,12 +1,10 @@
 import 'package:get/get.dart';
+import 'package:get/get_rx/get_rx.dart';
 
 class HomeController extends GetxController {
+  var currentIndex = 1.obs;
 
-// final MyRepository repository;
-// HomeController(this.repository);
-HomeController();
-
-  final _obj = ''.obs;
-  set obj(value) => this._obj.value = value;
-  get obj => this._obj.value;
+  void changePage(int index) {
+    currentIndex.value = index;
+  }
 }

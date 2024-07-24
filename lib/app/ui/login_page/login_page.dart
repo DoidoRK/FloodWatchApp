@@ -5,6 +5,8 @@ import 'package:flood_watch_app/app/theme/app_theme.dart';
 import 'package:flood_watch_app/app/ui/widgets/bottom_button_widget.dart';
 
 class LoginPage extends GetView<LoginController> {
+  const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Instanciar o LoginController
@@ -33,10 +35,10 @@ class LoginPage extends GetView<LoginController> {
                     ),
                   ),
                   // Texto "FloodWatch" dentro do Container azul
-                  Align(
+                  const Align(
                     alignment: Alignment.topCenter,
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 90.0),
+                      padding: EdgeInsets.only(top: 90.0),
                       child: Text(
                         'FloodWatch',
                         style: TextStyle(
@@ -59,8 +61,8 @@ class LoginPage extends GetView<LoginController> {
             right: 0,
             bottom: 0,
             child: Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(20),
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
@@ -70,20 +72,20 @@ class LoginPage extends GetView<LoginController> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   // Exibe mensagem de erro, se houver
                   Obx(() {
                     return loginController.errorMessage.isNotEmpty
                         ? Text(
                             loginController.errorMessage.value,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.red,
                               fontWeight: FontWeight.bold,
                             ),
                           )
-                        : SizedBox.shrink();
+                        : const SizedBox.shrink();
                   }),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   TextField(
                     keyboardType: TextInputType.datetime,
                     onChanged: (value) => loginController.setCpf(value),
@@ -107,7 +109,7 @@ class LoginPage extends GetView<LoginController> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Obx(() => TextField(
                         obscureText: loginController.obscureText.value,
                         onChanged: (value) => loginController.setSenha(value),
@@ -156,7 +158,7 @@ class LoginPage extends GetView<LoginController> {
                     onPressed: () {
                         Get.offNamed('/cadastro');
                     },
-                    child: Text(
+                    child: const Text(
                       'Cadastrar-se',
                       style: TextStyle(
                         color: Colors.blue,

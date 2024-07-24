@@ -11,7 +11,7 @@ class BottomButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      return Container(
+      return SizedBox(
         width: double.infinity,
         height: 50.0,
         child: ElevatedButton(

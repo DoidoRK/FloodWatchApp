@@ -10,9 +10,9 @@ class SplashController extends GetxController {
 
   void _navigateToNextPage() async {
     // Simular um atraso para mostrar a tela de splash
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 1));
 
     // Navegar para a tela de loading
-    Get.offNamed('/loading');
+    Get.toNamed('/loading');
   }
 }

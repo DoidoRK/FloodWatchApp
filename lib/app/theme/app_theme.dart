@@ -8,7 +8,7 @@ final ThemeData appThemeData = ThemeData(
     titleTextStyle: TextStyle(
       color: Colors.white,
       fontSize: 48,
-      fontFamily:'Lobster',
+      fontFamily: 'Lobster',
     ),
     iconTheme: IconThemeData(
       color: Colors.white,
@@ -16,8 +16,21 @@ final ThemeData appThemeData = ThemeData(
     ),
     toolbarHeight: 160,
   ),
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    backgroundColor: Colors.blueAccent,
+    selectedItemColor: Colors.white,
+    selectedLabelStyle: TextStyle(
+      fontFamily: 'Montserrat Alternates',
+      color: Colors.white,
+    ),
+    unselectedItemColor: Colors.white38,
+    unselectedLabelStyle: TextStyle(
+      fontFamily: 'Montserrat Alternates',
+      color: Colors.white38,
+    ),
+  ),
   buttonTheme: const ButtonThemeData(
-    textTheme: ButtonTextTheme.accent
+    textTheme: ButtonTextTheme.accent,
   ),
   inputDecorationTheme: const InputDecorationTheme(
     suffixIconColor: Colors.blueAccent,
@@ -40,15 +53,22 @@ final ThemeData appThemeData = ThemeData(
     style: ButtonStyle(
       textStyle: WidgetStatePropertyAll(TextStyle(
         color: Colors.white,
-        fontFamily: 'Montserrat Alternates'
+        fontFamily: 'Montserrat Alternates',
       )),
       foregroundColor: WidgetStatePropertyAll(Colors.blueAccent),
-    )
+    ),
   ),
   textTheme: const TextTheme(
     bodyMedium: TextStyle(
       fontFamily: 'Montserrat Alternates',
-      color: Colors.blueAccent
-    )
-  )
+      color: Colors.blueAccent,
+    ),
+  ),
+  listTileTheme: const ListTileThemeData(
+    iconColor: Colors.blueAccent,
+    titleTextStyle: TextStyle(
+      fontFamily: 'Montserrat Alternates',
+      color: Colors.blueAccent,
+    ),
+  ),
 );
