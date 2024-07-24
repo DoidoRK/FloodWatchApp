@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProfileWidget extends StatelessWidget {
   final String newUserName;
   final String newUserPhotoAsset;
-  final VoidCallback? onLogout;
+  final VoidCallback onLogout;
   final VoidCallback? onInfo;
   final VoidCallback? onAddress;
   final VoidCallback? onPassword;
@@ -14,7 +14,7 @@ class ProfileWidget extends StatelessWidget {
     super.key, 
     required this.newUserName,
     required this.newUserPhotoAsset,
-    this.onLogout,
+    required this.onLogout,
     this.onInfo,
     this.onAddress,
     this.onPassword,

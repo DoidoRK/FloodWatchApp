@@ -111,7 +111,7 @@ class LoginPage extends GetView<LoginController> {
                           ),
                         )),
                     const SizedBox(height: 20,),
-                    Center(child: BottomButtonWidget(text: 'Continuar',onPressed: () => {},disabled: loginController.isFormInvalid)),
+                    Center(child: BottomButtonWidget(text: 'Continuar',onPressed: loginController.onLogin, disabled: loginController.isFormInvalid)),
                     const SizedBox(height: 20),
                     const Text(
                       'Ainda não tem cadastro?',

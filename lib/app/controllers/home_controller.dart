@@ -5,6 +5,11 @@ class HomeController extends GetxController {
   final UserController newUserController = Get.find<UserController>();
   var currentIndex = 1.obs;
 
+  void onLogout() {
+    newUserController.isLogged.value = false;
+    currentIndex.value = 1;
+  }
+
   void changePage(int index) {
     currentIndex.value = index;
     if(index == 0)  //Verifica se é o perfil

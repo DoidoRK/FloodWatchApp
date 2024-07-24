@@ -6,20 +6,22 @@ import 'package:get/get.dart';
 class HomePage extends StatelessWidget {
   final HomeController homeController = Get.put(HomeController());
 
-  final List<Widget> _pages = [
-    const ProfileWidget(
-      newUserName: "Antônio Junior",
-      newUserPhotoAsset: 'assets/images/Thomas Shelby.png',
-    ), // Exemplo de uso de asset local
-    const Center(child: Text('Mapa Widget')),
-    const Center(child: Text('Relatos Widget')),
-    const Center(child: Text('Sobre Widget')),
-  ];
-
   HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {    
+    final List<Widget> pages = [
+      ProfileWidget(
+        newUserName: "Antônio Junior",
+        newUserPhotoAsset: 'assets/images/Thomas Shelby.png',
+        onLogout: homeController.onLogout,
+      ), // Exemplo de uso de asset local
+      const Center(child: Text('Mapa Widget')),
+      const Center(child: Text('Relatos Widget')),
+      const Center(child: Text('Sobre Widget')),
+    ];
+
+
     return Scaffold(
       bottomNavigationBar: Obx(() {
         return BottomNavigationBar(
@@ -50,7 +52,7 @@ class HomePage extends StatelessWidget {
         children: [
           Expanded(
             child: Obx(() {
-              return _pages[homeController.currentIndex.value]; // Widget variável
+              return pages[homeController.currentIndex.value]; // Widget variável
             }),
           ),
         ],

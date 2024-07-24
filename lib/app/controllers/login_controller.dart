@@ -1,6 +1,10 @@
+import 'package:flood_watch_app/app/controllers/user_controller.dart';
+import 'package:flood_watch_app/app/data/address_model.dart';
+import 'package:flood_watch_app/app/data/user_model.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
+  final UserController newUserController = Get.find<UserController>();
   // Observáveis para os campos de texto
   final RxString cpf = ''.obs;
   final RxString senha = ''.obs;
@@ -12,9 +16,32 @@ class LoginController extends GetxController {
   final RxBool obscureText = true.obs;
 
   // Função para realizar o login
-  void login() {
-    // Exemplo de navegação após o login bem-sucedido (ajuste conforme necessário)
-    // Get.to(HomePage());
+  void onLogin() {
+    User loggedUser = newUserController.registeredUsers.singleWhere((user) => user.cpf == cpf.value && user.senha == senha.value,
+    orElse: () => User(
+      nome: '',
+      senha: '',
+      cpf: '',
+      dataNascimento: '',
+      endereco: Endereco(
+        rua: '',
+        numero: '',
+        complemento: '',
+        bairro: '',
+        cidade: '',
+        cep: '',
+        estado: '',
+      ),
+      email: '',
+      numeroDeTelefone: '',
+      pontosRelatados: [],
+    ),
+  );
+  if (loggedUser.cpf != '' && loggedUser.senha != '') {
+    newUserController.isLogged.value = true;
+    Get.offAllNamed('/home');
+  } 
+    
   }
   void checkFormIsValid() {
     if (cpf.value.isNotEmpty && senha.value.isNotEmpty) {
