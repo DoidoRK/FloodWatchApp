@@ -2,7 +2,7 @@ import 'package:flood_watch_app/app/controllers/user_controller.dart';
 import 'package:get/get.dart';
 
 class CadastroEnderecoController extends GetxController {
-  final UserController userController = Get.find<UserController>();
+  final UserController newUserController = Get.find<UserController>();
   var rua = ''.obs;
   var numero = ''.obs;
   var complemento = ''.obs;
@@ -75,13 +75,13 @@ class CadastroEnderecoController extends GetxController {
   }
 
   void onNext() {
-    userController.usuario.endereco.rua = rua.value;
-    userController.usuario.endereco.numero = numero.value;
-    userController.usuario.endereco.complemento = complemento.value;
-    userController.usuario.endereco.bairro = bairro.value;
-    userController.usuario.endereco.cidade = cidade.value;
-    userController.usuario.endereco.cep = cep.value;
-    userController.usuario.endereco.estado = estado.value;
+    newUserController.newUser.endereco.rua = rua.value;
+    newUserController.newUser.endereco.numero = numero.value;
+    newUserController.newUser.endereco.complemento = complemento.value;
+    newUserController.newUser.endereco.bairro = bairro.value;
+    newUserController.newUser.endereco.cidade = cidade.value;
+    newUserController.newUser.endereco.cep = cep.value;
+    newUserController.newUser.endereco.estado = estado.value;
     Get.toNamed('/cadastro3');
   }
 }

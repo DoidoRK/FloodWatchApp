@@ -2,7 +2,7 @@ import 'package:flood_watch_app/app/data/flood_report_model.dart';
 import 'package:flood_watch_app/app/data/user_model.dart';
 
 class Comentario {
-  Usuario autor;
+  User autor;
   String conteudo;
   RelatoAlagamento relatoAlagamento;
 
@@ -14,7 +14,7 @@ class Comentario {
 
   factory Comentario.fromMap(Map<String, dynamic> map) {
     return Comentario(
-      autor: Usuario.fromMap(map['autor']),
+      autor: User.fromMap(map['autor']),
       conteudo: map['conteudo'],
       relatoAlagamento: RelatoAlagamento.fromMap(map['relatoAlagamento']),
     );

@@ -68,7 +68,7 @@ class CadastroPageEndereco extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.only(top: 90.0),
                       child: Text(
-                        'FloodWatch',
+                        'Endereço',
                         style: TextStyle(
                           fontSize: 48,
                           fontFamily: 'Lobster',

@@ -1,7 +1,7 @@
 import 'package:flood_watch_app/app/data/address_model.dart';
 import 'package:flood_watch_app/app/data/flood_report_model.dart';
 
-class Usuario {
+class User {
   String nome;
   String senha;
   String cpf;
@@ -11,7 +11,7 @@ class Usuario {
   String numeroDeTelefone;
   List<RelatoAlagamento> pontosRelatados;
 
-  Usuario({
+  User({
     this.nome = '',
     this.senha = '',
     this.cpf = '',
@@ -31,8 +31,8 @@ class Usuario {
     ),
         pontosRelatados = pontosRelatados ?? [];
 
-  factory Usuario.fromMap(Map<String, dynamic> map) {
-    return Usuario(
+  factory User.fromMap(Map<String, dynamic> map) {
+    return User(
       nome: map['nome'] ?? '',
       senha: map['senha'] ?? '',
       cpf: map['cpf'] ?? '',
@@ -61,6 +61,6 @@ class Usuario {
 
   @override
   String toString() {
-    return 'Usuario(nome: $nome, senha: $senha, cpf: $cpf, dataNascimento: $dataNascimento, endereco: $endereco, email: $email, numeroDeTelefone: $numeroDeTelefone, pontosRelatados: $pontosRelatados)';
+    return 'User(nome: $nome, senha: $senha, cpf: $cpf, dataNascimento: $dataNascimento, endereco: $endereco, email: $email, numeroDeTelefone: $numeroDeTelefone, pontosRelatados: $pontosRelatados)';
   }
 }

@@ -5,7 +5,7 @@ import 'package:flood_watch_app/app/data/user_model.dart';
 
 
 class RelatoAlagamento {
-  Usuario autor;
+  User autor;
   int severidade;
   List<File> fotos;
   File video;
@@ -27,7 +27,7 @@ class RelatoAlagamento {
 
   factory RelatoAlagamento.fromMap(Map<String, dynamic> map) {
     return RelatoAlagamento(
-      autor: Usuario.fromMap(map['autor']),
+      autor: User.fromMap(map['autor']),
       severidade: map['severidade'],
       fotos: List<File>.from(map['fotos'].map((path) => File(path))),
       video: File(map['video']),

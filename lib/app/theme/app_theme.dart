@@ -73,4 +73,23 @@ final ThemeData appThemeData = ThemeData(
       color: Colors.blueAccent,
     ),
   ),
+  checkboxTheme: CheckboxThemeData(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(4.0),
+    ),
+    side: WidgetStateBorderSide.resolveWith(
+      (states) => const BorderSide(
+        color: Colors.blueAccent,
+      ),
+    ),
+    fillColor: WidgetStateProperty.resolveWith<Color>(
+      (Set<WidgetState> states) {
+        if (states.contains(WidgetState.selected)) {
+          return Colors.blueAccent; // Preenchimento quando selecionado
+        }
+        return Colors.white; // Fundo quando não selecionado
+      },
+    ),
+    checkColor: WidgetStateProperty.all(Colors.white), // Cor do ícone de seleção (tick)
+  ),
 );
