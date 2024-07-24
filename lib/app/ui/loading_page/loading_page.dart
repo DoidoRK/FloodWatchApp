@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoadingPage extends GetView<LoadingController> {
-  const LoadingPage({super.key});
+  final LoadingController cadastroController = Get.put(LoadingController());
+  LoadingPage({super.key});
 
   @override
   Widget build(BuildContext context) {

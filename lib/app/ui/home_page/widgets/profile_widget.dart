@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ProfileWidget extends StatelessWidget {
-  final String userName;
-  final String userPhotoAsset;
-  final VoidCallback? onLogout;
+  final String newUserName;
+  final String newUserPhotoAsset;
+  final VoidCallback onLogout;
   final VoidCallback? onInfo;
   final VoidCallback? onAddress;
   final VoidCallback? onPassword;
@@ -12,9 +12,9 @@ class ProfileWidget extends StatelessWidget {
 
   const ProfileWidget({
     super.key, 
-    required this.userName,
-    required this.userPhotoAsset,
-    this.onLogout,
+    required this.newUserName,
+    required this.newUserPhotoAsset,
+    required this.onLogout,
     this.onInfo,
     this.onAddress,
     this.onPassword,
@@ -25,7 +25,7 @@ class ProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Dividindo o nome em primeiro e último nome
-    List<String> nameParts = userName.split(' ');
+    List<String> nameParts = newUserName.split(' ');
 
     return Scaffold(
       body: Padding(
@@ -50,7 +50,7 @@ class ProfileWidget extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 64,
-                  backgroundImage: AssetImage(userPhotoAsset),
+                  backgroundImage: AssetImage(newUserPhotoAsset),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

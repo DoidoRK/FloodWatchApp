@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-//import 'package:flutter/material.dart';
 
 class SplashController extends GetxController {
   @override

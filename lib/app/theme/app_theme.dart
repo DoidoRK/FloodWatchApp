@@ -32,19 +32,21 @@ final ThemeData appThemeData = ThemeData(
   buttonTheme: const ButtonThemeData(
     textTheme: ButtonTextTheme.accent,
   ),
-  inputDecorationTheme: const InputDecorationTheme(
+  inputDecorationTheme:  InputDecorationTheme(
     suffixIconColor: Colors.blueAccent,
-    labelStyle: TextStyle(
+    labelStyle: const TextStyle(
       fontFamily: 'Montserrat Alternates',
       color: Colors.blueAccent,
     ),
     focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: const BorderSide(
         color: Colors.blueAccent,
       ),
     ),
     enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: const BorderSide(
         color: Colors.blueAccent,
       ),
     ),
@@ -70,5 +72,24 @@ final ThemeData appThemeData = ThemeData(
       fontFamily: 'Montserrat Alternates',
       color: Colors.blueAccent,
     ),
+  ),
+  checkboxTheme: CheckboxThemeData(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(4.0),
+    ),
+    side: WidgetStateBorderSide.resolveWith(
+      (states) => const BorderSide(
+        color: Colors.blueAccent,
+      ),
+    ),
+    fillColor: WidgetStateProperty.resolveWith<Color>(
+      (Set<WidgetState> states) {
+        if (states.contains(WidgetState.selected)) {
+          return Colors.blueAccent; // Preenchimento quando selecionado
+        }
+        return Colors.white; // Fundo quando não selecionado
+      },
+    ),
+    checkColor: WidgetStateProperty.all(Colors.white), // Cor do ícone de seleção (tick)
   ),
 );
