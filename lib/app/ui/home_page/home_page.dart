@@ -2,16 +2,53 @@ import 'package:flood_watch_app/app/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomePage extends GetView<HomeController> {
+class HomePage extends StatelessWidget {
+  final HomeController homeController = Get.put(HomeController());
+
+  final List<Widget> _pages = [
+    Center(child: Text('Perfil Widget')),
+    Center(child: Text('Mapa Widget')),
+    Center(child: Text('Relatos Widget')),
+    Center(child: Text('Sobre Widget')),
+  ];
 
   @override
-  Widget build(BuildContext context) {
-
+  Widget build(BuildContext context) {    
     return Scaffold(
-    appBar: AppBar(title: Text('HomePage')),
-
-    body: SafeArea(
-      child: Text('HomeController'))
+      bottomNavigationBar: Obx(() {
+        return BottomNavigationBar(
+          currentIndex: homeController.currentIndex.value,
+          onTap: (index) => homeController.changePage(index),
+          type: BottomNavigationBarType.fixed,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Perfil',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.map),
+              label: 'Mapa',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.article),
+              label: 'Relatos',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.info),
+              label: 'Sobre',
+            ),
+          ],
+        );
+      }),
+      body: Column(
+        children: [
+          Expanded(
+            child: Obx(() {
+              return _pages[homeController.currentIndex.value]; // Widget variável
+            }),
+          ),
+        ],
+      ),
     );
   }
 }

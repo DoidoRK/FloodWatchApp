@@ -6,9 +6,10 @@ import 'package:get/get.dart';
 class LoadingPage extends GetView<LoadingController> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: appThemeData.primaryColor,
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

@@ -8,18 +8,9 @@ import 'package:get/get.dart';
 
 class AppPages {
   static final pages = [
-    GetPage(
-      name: Routes.SPLASH,
-      page: () => SplashPage(),
-    ),
-    GetPage(
-      name: Routes.LOADING,
-      page: () => LoadingPage(),
-    ),
-    GetPage(
-      name: Routes.HOME,
-      page: () => HomePage(),
-    ),
+    GetPage(name: Routes.SPLASH,page: () => SplashPage(),),
+    GetPage(name: Routes.LOADING,page: () => LoadingPage(),),
+    GetPage(name: Routes.HOME,page: () => HomePage(),),
     GetPage(name: Routes.LOGIN, page: () => LoginPage()),
     GetPage(name: Routes.CADASTRO, page: () => CadastroPage())
   ];
