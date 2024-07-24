@@ -16,7 +16,7 @@ class LoginPage extends GetView<LoginController> {
           // Container Azul no fundo
           Positioned.fill(
             child: Container(
-              color: Colors.blue,
+              color: appThemeData.primaryColor,
               child: Stack(
                 children: [
                   // Adiciona o botão de voltar dentro do Container azul
