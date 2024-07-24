@@ -1,6 +1,8 @@
+import 'package:flood_watch_app/app/controllers/user_controller.dart';
 import 'package:get/get.dart';
 
 class CadastroEnderecoController extends GetxController {
+  final UserController userController = Get.find<UserController>();
   var cep = ''.obs;
   var complemento = ''.obs;
   var dataNascimento = ''.obs;
@@ -35,5 +37,16 @@ class CadastroEnderecoController extends GetxController {
     } else {
       isFormInvalid.value = true;
     }
+  }
+
+  void onBack() {
+    Get.back();
+  }
+
+  void onNext() {
+    // userController.usuario.nome = nome.value;
+    // userController.usuario.numeroDeTelefone = telefone.value;
+    userController.usuario.dataNascimento = dataNascimento.value;
+    Get.toNamed('/cadastro3');
   }
 }

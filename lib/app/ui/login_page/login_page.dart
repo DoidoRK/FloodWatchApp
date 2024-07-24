@@ -29,7 +29,7 @@ class LoginPage extends GetView<LoginController> {
                     child: IconButton(
                       icon: const Icon(Icons.chevron_left, color: Colors.white),
                       iconSize: 60,
-                      onPressed: () => loginController.onBack(),
+                      onPressed: loginController.onBack,
                     ),
                   ),
                   // Texto "FloodWatch" dentro do Container azul
@@ -120,7 +120,7 @@ class LoginPage extends GetView<LoginController> {
                       ),
                     ),
                     TextButton(
-                      onPressed: () => loginController.onNext(),
+                      onPressed: loginController.onNext,
                       child: const Text(
                         'Cadastrar-se',
                         style: TextStyle(

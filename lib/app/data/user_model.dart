@@ -5,31 +5,44 @@ class Usuario {
   String nome;
   String senha;
   String cpf;
+  String dataNascimento;
   Endereco endereco;
   String email;
   String numeroDeTelefone;
   List<RelatoAlagamento> pontosRelatados;
 
   Usuario({
-    required this.nome,
-    required this.senha,
-    required this.cpf,
-    required this.endereco,
-    required this.email,
-    required this.numeroDeTelefone,
-    required this.pontosRelatados,
-  });
+    this.nome = '',
+    this.senha = '',
+    this.cpf = '',
+    this.dataNascimento = '',
+    Endereco? endereco,
+    this.email = '',
+    this.numeroDeTelefone = '',
+    List<RelatoAlagamento>? pontosRelatados,
+  })  : endereco = endereco ?? Endereco(
+      rua: '',
+      numero: '',
+      complemento: '',
+      bairro: '',
+      cidade: '',
+      cep: '',
+      estado: '',
+    ),
+        pontosRelatados = pontosRelatados ?? [];
 
   factory Usuario.fromMap(Map<String, dynamic> map) {
     return Usuario(
-      nome: map['nome'],
-      senha: map['senha'],
-      cpf: map['cpf'],
-      endereco: Endereco.fromMap(map['endereco']),
-      email: map['email'],
-      numeroDeTelefone: map['numeroDeTelefone'],
+      nome: map['nome'] ?? '',
+      senha: map['senha'] ?? '',
+      cpf: map['cpf'] ?? '',
+      dataNascimento: map['dataNascimento'] ?? '',
+      endereco: Endereco.fromMap(map['endereco'] ?? {}),
+      email: map['email'] ?? '',
+      numeroDeTelefone: map['numeroDeTelefone'] ?? '',
       pontosRelatados: List<RelatoAlagamento>.from(
-        map['pontosRelatados']?.map((x) => RelatoAlagamento.fromMap(x))),
+        map['pontosRelatados']?.map((x) => RelatoAlagamento.fromMap(x)) ?? [],
+      ),
     );
   }
 
@@ -38,6 +51,7 @@ class Usuario {
       'nome': nome,
       'senha': senha,
       'cpf': cpf,
+      'dataNascimento': dataNascimento,
       'endereco': endereco.toMap(),
       'email': email,
       'numeroDeTelefone': numeroDeTelefone,
@@ -47,6 +61,6 @@ class Usuario {
 
   @override
   String toString() {
-    return 'Usuario(nome: $nome, senha: $senha, cpf: $cpf, endereco: $endereco, email: $email, numeroDeTelefone: $numeroDeTelefone, pontosRelatados: $pontosRelatados)';
+    return 'Usuario(nome: $nome, senha: $senha, cpf: $cpf, dataNascimento: $dataNascimento, endereco: $endereco, email: $email, numeroDeTelefone: $numeroDeTelefone, pontosRelatados: $pontosRelatados)';
   }
 }

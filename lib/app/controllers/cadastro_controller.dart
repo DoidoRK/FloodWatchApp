@@ -1,6 +1,8 @@
+import 'package:flood_watch_app/app/controllers/user_controller.dart';
 import 'package:get/get.dart';
 
 class CadastroController extends GetxController {
+  final UserController userController = Get.find<UserController>();
   var nome = ''.obs;
   var telefone = ''.obs;
   var dataNascimento = ''.obs;
@@ -39,5 +41,12 @@ class CadastroController extends GetxController {
 
   void onBack() {
     Get.back();
+  }
+
+  void onNext() {
+    userController.usuario.nome = nome.value;
+    userController.usuario.numeroDeTelefone = telefone.value;
+    userController.usuario.dataNascimento = dataNascimento.value;
+    Get.toNamed('/cadastro2');
   }
 }

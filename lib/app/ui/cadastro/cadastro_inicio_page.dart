@@ -28,7 +28,7 @@ class CadastroPage extends StatelessWidget {
                     child: IconButton(
                       icon: const Icon(Icons.chevron_left, color: Colors.white),
                       iconSize: 60,
-                      onPressed: () => cadastroController.onBack(),
+                      onPressed: cadastroController.onBack,
                     ),
                   ),
                   // Texto "FloodWatch" dentro do Container azul
@@ -102,7 +102,7 @@ class CadastroPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 160),
                     Center(
-                      child: BottomButtonWidget(text: 'Continuar', onPressed: ()=>{Get.offNamed('/cadastro2')}, disabled: cadastroController.isFormInvalid),
+                      child: BottomButtonWidget(text: 'Continuar', onPressed: cadastroController.onNext, disabled: cadastroController.isFormInvalid),
                     ),
                   ],
                 ),

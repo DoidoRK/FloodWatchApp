@@ -8,25 +8,25 @@ class Endereco {
   String estado;
 
   Endereco({
-    required this.rua,
-    required this.numero,
-    required this.complemento,
-    required this.bairro,
-    required this.cidade,
-    required this.cep,
-    required this.estado,
+    this.rua = '',
+    this.numero = '',
+    this.complemento = '',
+    this.bairro = '',
+    this.cidade = '',
+    this.cep = '',
+    this.estado = '',
   });
 
   // Método para converter um mapa em um objeto Endereco
   factory Endereco.fromMap(Map<String, dynamic> map) {
     return Endereco(
-      rua: map['rua'],
-      numero: map['numero'],
-      complemento: map['complemento'],
-      bairro: map['bairro'],
-      cidade: map['cidade'],
-      cep: map['cep'],
-      estado: map['estado'],
+      rua: map['rua'] ?? '',
+      numero: map['numero'] ?? '',
+      complemento: map['complemento'] ?? '',
+      bairro: map['bairro'] ?? '',
+      cidade: map['cidade'] ?? '',
+      cep: map['cep'] ?? '',
+      estado: map['estado'] ?? '',
     );
   }
 
