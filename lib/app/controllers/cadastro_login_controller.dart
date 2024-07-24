@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
 
-class LoginController extends GetxController {
+class CadastroLoginController extends GetxController {
   // Observáveis para os campos de texto
   final RxString cpf = ''.obs;
+ var isChecked = false.obs;
   final RxString senha = ''.obs;
   var isFormInvalid = true.obs;
   // Observável para mensagens de erro
@@ -17,7 +18,7 @@ class LoginController extends GetxController {
     // Get.to(HomePage());
   }
   void checkFormIsValid() {
-    if (cpf.value.isNotEmpty && senha.value.isNotEmpty) {
+    if (cpf.value.isNotEmpty && senha.value.isNotEmpty && isChecked.value == true) {
       isFormInvalid.value = false;
     } else {
       isFormInvalid.value = true;
@@ -33,6 +34,12 @@ class LoginController extends GetxController {
     senha.value = value;
     checkFormIsValid();
   }
+
+  void setChecked(bool value) {
+  isChecked.value = value;
+  checkFormIsValid();
+}
+
 
   // Método para alternar a visibilidade da senha
   void toggleObscureText() {

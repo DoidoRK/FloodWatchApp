@@ -13,7 +13,7 @@ class CadastroPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.chevron_left,),
           onPressed: () {
-            Get.back();
+            Get.offNamed('/login');
           },
         ),
         title: const Text(
@@ -58,7 +58,7 @@ class CadastroPage extends StatelessWidget {
               ),
               const SizedBox(height: 160),
               Center(
-                child: BottomButtonWidget(text: 'Continuar', onPressed: ()=>{}, disabled: cadastroController.isFormInvalid),
+                child: BottomButtonWidget(text: 'Continuar', onPressed: ()=>{Get.offNamed('/cadastro2')}, disabled: cadastroController.isFormInvalid),
               ),
             ],
           ),
