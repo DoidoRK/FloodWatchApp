@@ -4,7 +4,7 @@ class LoginController extends GetxController {
   // Observáveis para os campos de texto
   final RxString cpf = ''.obs;
   final RxString senha = ''.obs;
-
+  var isFormInvalid = true.obs;
   // Observável para mensagens de erro
   final RxString errorMessage = ''.obs;
 
@@ -13,21 +13,25 @@ class LoginController extends GetxController {
 
   // Função para realizar o login
   void login() {
-    if (cpf.value.isEmpty || senha.value.isEmpty) {
-      // Se algum campo estiver vazio, exibe mensagem de erro
-      errorMessage.value = 'Por favor, preencha todos os campos.';
-      return;
-    }
-
-    // Caso contrário, limpa a mensagem de erro e continua com o login
-    errorMessage.value = '';
-
-    // Aqui você pode adicionar a lógica de autenticação
-    print('CPF: ${cpf.value}');
-    print('Senha: ${senha.value}');
-
     // Exemplo de navegação após o login bem-sucedido (ajuste conforme necessário)
     // Get.to(HomePage());
+  }
+  void checkFormIsValid() {
+    if (cpf.value.isNotEmpty && senha.value.isNotEmpty) {
+      isFormInvalid.value = false;
+    } else {
+      isFormInvalid.value = true;
+    }
+  }
+
+  void setCpf(String value) {
+    cpf.value = value;
+    checkFormIsValid();
+  }
+
+  void setSenha(String value) {
+    senha.value = value;
+    checkFormIsValid();
   }
 
   // Método para alternar a visibilidade da senha

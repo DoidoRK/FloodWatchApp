@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flood_watch_app/app/controllers/login_controller.dart';
 import 'package:flood_watch_app/app/theme/app_theme.dart';
+import 'package:flood_watch_app/app/ui/widgets/bottom_button_widget.dart';
 
 class LoginPage extends GetView<LoginController> {
   @override
@@ -21,13 +22,11 @@ class LoginPage extends GetView<LoginController> {
                 children: [
                   // Adiciona o botão de voltar dentro do Container azul
                   Positioned(
-                    top:
-                        40, // Ajuste conforme necessário para a posição do botão
-                    left:
-                        20, // Ajuste conforme necessário para a posição do botão
+                    top: 40,
+                    left: 20,
                     child: IconButton(
                       icon: Icon(Icons.chevron_left, color: Colors.white),
-                      iconSize: 60, // Tamanho do ícone desejado
+                      iconSize: 60,
                       onPressed: () {
                         // Ação do botão de voltar
                       },
@@ -55,10 +54,10 @@ class LoginPage extends GetView<LoginController> {
           ),
           // Container Branco sobreposto
           Positioned(
-            top: 250, // Ajustar conforme necessário
+            top: 250,
             left: 0,
             right: 0,
-            bottom: 0, // Para garantir que ocupe o restante da tela
+            bottom: 0,
             child: Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -86,37 +85,31 @@ class LoginPage extends GetView<LoginController> {
                   }),
                   SizedBox(height: 20),
                   TextField(
-                    onChanged: (value) => loginController.cpf.value = value,
+                    onChanged: (value) => loginController.setCpf(value),
                     decoration: InputDecoration(
                       labelText: 'CPF',
-                      labelStyle: TextStyle(
-                          color: appThemeData
-                              .primaryColor), // Cor do texto do rótulo
+                      labelStyle: TextStyle(color: appThemeData.primaryColor),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                            color: appThemeData.primaryColor,
-                            width: 2), // Cor da borda padrão
+                            color: appThemeData.primaryColor, width: 2),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                            color: appThemeData.primaryColor,
-                            width: 2), // Cor da borda quando em foco
+                            color: appThemeData.primaryColor, width: 2),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                            color: appThemeData.primaryColor,
-                            width: 2), // Cor da borda quando habilitado
+                            color: appThemeData.primaryColor, width: 2),
                       ),
                     ),
                   ),
                   SizedBox(height: 20),
                   Obx(() => TextField(
                         obscureText: loginController.obscureText.value,
-                        onChanged: (value) =>
-                            loginController.senha.value = value,
+                        onChanged: (value) => loginController.setSenha(value),
                         decoration: InputDecoration(
                           labelText: 'Senha',
                           labelStyle:
@@ -135,45 +128,26 @@ class LoginPage extends GetView<LoginController> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                                color: appThemeData.primaryColor,
-                                width: 2), // Cor da borda padrão
+                                color: appThemeData.primaryColor, width: 2),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                                color: appThemeData.primaryColor,
-                                width: 2), // Cor da borda quando em foco
+                                color: appThemeData.primaryColor, width: 2),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                                color: appThemeData.primaryColor,
-                                width: 2), // Cor da borda quando habilitado
+                                color: appThemeData.primaryColor, width: 2),
                           ),
                         ),
                       )),
-
                   SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Chama o método de login do controller
-                      loginController.login();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: appThemeData.primaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 50),
-                    ),
-                    child: Text(
-                      'Login',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
+                  Center(
+                      child: BottomButtonWidget(
+                          text: 'Continuar',
+                          onPressed: () => {},
+                          disabled: loginController.isFormInvalid)),
                   SizedBox(height: 20),
                   Text(
                     'Ainda não tem cadastro?',
