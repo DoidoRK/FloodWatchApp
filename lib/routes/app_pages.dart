@@ -1,3 +1,4 @@
+import 'package:flood_watch_app/app/ui/cadastro/cadastro_inicio_page.dart';
 import 'package:flood_watch_app/app/ui/home_page/home_page.dart';
 import 'package:flood_watch_app/app/ui/loading_page/loading_page.dart';
 import 'package:flood_watch_app/app/ui/login_page/login_page.dart';
@@ -19,6 +20,7 @@ class AppPages {
       name: Routes.HOME,
       page: () => HomePage(),
     ),
-    GetPage(name: Routes.LOGIN, page: () => LoginPage())
+    GetPage(name: Routes.LOGIN, page: () => LoginPage()),
+    GetPage(name: Routes.CADASTRO, page: () => CadastroPage())
   ];
 }
