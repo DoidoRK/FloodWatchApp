@@ -85,6 +85,7 @@ class LoginPage extends GetView<LoginController> {
                   }),
                   SizedBox(height: 20),
                   TextField(
+                    keyboardType: TextInputType.datetime,
                     onChanged: (value) => loginController.setCpf(value),
                     decoration: InputDecoration(
                       labelText: 'CPF',
@@ -142,12 +143,8 @@ class LoginPage extends GetView<LoginController> {
                           ),
                         ),
                       )),
-                  SizedBox(height: 20),
-                  Center(
-                      child: BottomButtonWidget(
-                          text: 'Continuar',
-                          onPressed: () => {},
-                          disabled: loginController.isFormInvalid)),
+                  SizedBox(height: 20,),
+                  Center(child: BottomButtonWidget(text: 'Continuar',onPressed: () => {},disabled: loginController.isFormInvalid)),
                   SizedBox(height: 20),
                   Text(
                     'Ainda não tem cadastro?',
@@ -157,7 +154,7 @@ class LoginPage extends GetView<LoginController> {
                   ),
                   TextButton(
                     onPressed: () {
-                      // Navegar para a página de cadastro
+                        Get.offNamed('/cadastro');
                     },
                     child: Text(
                       'Cadastrar-se',

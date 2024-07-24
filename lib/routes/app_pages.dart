@@ -1,4 +1,6 @@
 import 'package:flood_watch_app/app/ui/cadastro/cadastro_inicio_page.dart';
+import 'package:flood_watch_app/app/ui/cadastro/cadastro_endereco_page.dart';
+import 'package:flood_watch_app/app/ui/cadastro/cadastro_login_page.dart';
 import 'package:flood_watch_app/app/ui/home_page/home_page.dart';
 import 'package:flood_watch_app/app/ui/loading_page/loading_page.dart';
 import 'package:flood_watch_app/app/ui/login_page/login_page.dart';
@@ -8,19 +10,12 @@ import 'package:get/get.dart';
 
 class AppPages {
   static final pages = [
-    GetPage(
-      name: Routes.SPLASH,
-      page: () => SplashPage(),
-    ),
-    GetPage(
-      name: Routes.LOADING,
-      page: () => LoadingPage(),
-    ),
-    GetPage(
-      name: Routes.HOME,
-      page: () => HomePage(),
-    ),
+    GetPage(name: Routes.SPLASH,page: () => SplashPage(),),
+    GetPage(name: Routes.LOADING, page: () => LoadingPage(),),
+    GetPage(name: Routes.HOME,page: () => HomePage(),),
     GetPage(name: Routes.LOGIN, page: () => LoginPage()),
-    GetPage(name: Routes.CADASTRO, page: () => CadastroPage())
+    GetPage(name: Routes.CADASTRO, page: () => CadastroPage()),
+    GetPage(name: Routes.CADASTRO_ENDERECO, page: () => CadastroPageEndereco()),
+    GetPage(name: Routes.CADASTRO_LOGIN, page: () => CadastroPageLogin()),
   ];
 }
