@@ -9,7 +9,7 @@ void main() {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.SPLASH, //Rota inicial
+      initialRoute: Routes.CADASTRO, //Rota inicial
       // initialBinding: HomeBinding(), // dependencias iniciais
       theme: appThemeData, //Tema personalizado app
       defaultTransition: Transition.fade, // Transição de telas padrão
