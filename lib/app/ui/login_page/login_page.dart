@@ -1,12 +1,14 @@
-//import 'package:flood_watch_app/app/controllers/loading_controller.dart';
-import 'package:flood_watch_app/app/controllers/login_controller.dart';
-import 'package:flood_watch_app/app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flood_watch_app/app/controllers/login_controller.dart';
+import 'package:flood_watch_app/app/theme/app_theme.dart';
 
 class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
+    // Instanciar o LoginController
+    final LoginController loginController = Get.put(LoginController());
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: Stack(
@@ -69,9 +71,22 @@ class LoginPage extends GetView<LoginController> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // O botão de voltar foi movido para o Container azul
+                  SizedBox(height: 20),
+                  // Exibe mensagem de erro, se houver
+                  Obx(() {
+                    return loginController.errorMessage.isNotEmpty
+                        ? Text(
+                            loginController.errorMessage.value,
+                            style: TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+                        : SizedBox.shrink();
+                  }),
                   SizedBox(height: 20),
                   TextField(
+                    onChanged: (value) => loginController.cpf.value = value,
                     decoration: InputDecoration(
                       labelText: 'CPF',
                       labelStyle: TextStyle(
@@ -98,35 +113,52 @@ class LoginPage extends GetView<LoginController> {
                     ),
                   ),
                   SizedBox(height: 20),
-                  TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      labelText: 'Senha',
-                      labelStyle: TextStyle(color: appThemeData.primaryColor),
-                      suffixIcon: Icon(Icons.visibility),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                            color: appThemeData.primaryColor,
-                            width: 2), // Cor da borda padrão
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                            color: appThemeData.primaryColor,
-                            width: 2), // Cor da borda quando em foco
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                            color: appThemeData.primaryColor,
-                            width: 2), // Cor da borda quando habilitado
-                      ),
-                    ),
-                  ),
+                  Obx(() => TextField(
+                        obscureText: loginController.obscureText.value,
+                        onChanged: (value) =>
+                            loginController.senha.value = value,
+                        decoration: InputDecoration(
+                          labelText: 'Senha',
+                          labelStyle:
+                              TextStyle(color: appThemeData.primaryColor),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              loginController.obscureText.value
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              color: appThemeData.primaryColor,
+                            ),
+                            onPressed: () {
+                              loginController.toggleObscureText();
+                            },
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                                color: appThemeData.primaryColor,
+                                width: 2), // Cor da borda padrão
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                                color: appThemeData.primaryColor,
+                                width: 2), // Cor da borda quando em foco
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                                color: appThemeData.primaryColor,
+                                width: 2), // Cor da borda quando habilitado
+                          ),
+                        ),
+                      )),
+
                   SizedBox(height: 20),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      // Chama o método de login do controller
+                      loginController.login();
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: appThemeData.primaryColor,
                       shape: RoundedRectangleBorder(
@@ -150,7 +182,9 @@ class LoginPage extends GetView<LoginController> {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      // Navegar para a página de cadastro
+                    },
                     child: Text(
                       'Cadastrar-se',
                       style: TextStyle(
