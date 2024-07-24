@@ -14,7 +14,6 @@ class BottomButtonWidget extends StatelessWidget {
       return Container(
         width: double.infinity,
         height: 50.0,
-        padding: const EdgeInsets.symmetric(horizontal: 30.0),
         child: ElevatedButton(
           onPressed: disabled.value ? null : onPressed,
           style: ElevatedButton.styleFrom(
