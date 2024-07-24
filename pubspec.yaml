@@ -82,7 +82,7 @@ flutter:
     - family: Montserrat Alternates
       fonts:
         - asset: fonts/MontserratAlternates-Regular.ttf
-        - asset: fonts/MontserratAlternates-Regular.ttf
+        - asset: fonts/MontserratAlternates-Bold.ttf
           weight: 700
   #
   # For details regarding fonts from package dependencies,
