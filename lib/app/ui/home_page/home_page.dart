@@ -1,4 +1,5 @@
 import 'package:flood_watch_app/app/controllers/home_controller.dart';
+import 'package:flood_watch_app/app/ui/home_page/widgets/profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,10 +7,13 @@ class HomePage extends StatelessWidget {
   final HomeController homeController = Get.put(HomeController());
 
   final List<Widget> _pages = [
-    Center(child: Text('Perfil Widget')),
-    Center(child: Text('Mapa Widget')),
-    Center(child: Text('Relatos Widget')),
-    Center(child: Text('Sobre Widget')),
+    ProfileWidget(
+      userName: "Antônio Júnior",
+      userPhotoAsset: 'assets/images/Thomas Shelby.png',
+    ), // Exemplo de uso de asset local
+    const Center(child: Text('Mapa Widget')),
+    const Center(child: Text('Relatos Widget')),
+    const Center(child: Text('Sobre Widget')),
   ];
 
   @override

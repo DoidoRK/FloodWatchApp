@@ -64,4 +64,11 @@ final ThemeData appThemeData = ThemeData(
       color: Colors.blueAccent,
     ),
   ),
+  listTileTheme: const ListTileThemeData(
+    iconColor: Colors.blueAccent,
+    titleTextStyle: TextStyle(
+      fontFamily: 'Montserrat Alternates',
+      color: Colors.blueAccent,
+    ),
+  ),
 );
