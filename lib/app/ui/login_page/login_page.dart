@@ -29,9 +29,7 @@ class LoginPage extends GetView<LoginController> {
                     child: IconButton(
                       icon: const Icon(Icons.chevron_left, color: Colors.white),
                       iconSize: 60,
-                      onPressed: () {
-                        // Ação do botão de voltar
-                      },
+                      onPressed: () => loginController.onBack(),
                     ),
                   ),
                   // Texto "FloodWatch" dentro do Container azul
@@ -69,103 +67,105 @@ class LoginPage extends GetView<LoginController> {
                   topRight: Radius.circular(20),
                 ),
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const SizedBox(height: 20),
-                  // Exibe mensagem de erro, se houver
-                  Obx(() {
-                    return loginController.errorMessage.isNotEmpty
-                        ? Text(
-                            loginController.errorMessage.value,
-                            style: const TextStyle(
-                              color: Colors.red,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )
-                        : const SizedBox.shrink();
-                  }),
-                  const SizedBox(height: 20),
-                  TextField(
-                    keyboardType: TextInputType.datetime,
-                    onChanged: (value) => loginController.setCpf(value),
-                    decoration: InputDecoration(
-                      labelText: 'CPF',
-                      labelStyle: TextStyle(color: appThemeData.primaryColor),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                            color: appThemeData.primaryColor, width: 2),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                            color: appThemeData.primaryColor, width: 2),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                            color: appThemeData.primaryColor, width: 2),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Obx(() => TextField(
-                        obscureText: loginController.obscureText.value,
-                        onChanged: (value) => loginController.setSenha(value),
-                        decoration: InputDecoration(
-                          labelText: 'Senha',
-                          labelStyle:
-                              TextStyle(color: appThemeData.primaryColor),
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                              loginController.obscureText.value
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: appThemeData.primaryColor,
-                            ),
-                            onPressed: () {
-                              loginController.toggleObscureText();
-                            },
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                                color: appThemeData.primaryColor, width: 2),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                                color: appThemeData.primaryColor, width: 2),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                                color: appThemeData.primaryColor, width: 2),
-                          ),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const SizedBox(height: 20),
+                    // Exibe mensagem de erro, se houver
+                    Obx(() {
+                      return loginController.errorMessage.isNotEmpty
+                          ? Text(
+                              loginController.errorMessage.value,
+                              style: const TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                          : const SizedBox.shrink();
+                    }),
+                    const SizedBox(height: 20),
+                    TextField(
+                      keyboardType: TextInputType.datetime,
+                      onChanged: (value) => loginController.setCpf(value),
+                      decoration: InputDecoration(
+                        labelText: 'CPF',
+                        labelStyle: TextStyle(color: appThemeData.primaryColor),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                              color: appThemeData.primaryColor, width: 2),
                         ),
-                      )),
-                  const SizedBox(height: 20,),
-                  Center(child: BottomButtonWidget(text: 'Continuar',onPressed: () => {},disabled: loginController.isFormInvalid)),
-                  const SizedBox(height: 20),
-                  const Text(
-                    'Ainda não tem cadastro?',
-                    style: TextStyle(
-                      color: Colors.grey,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                        Get.offNamed('/cadastro');
-                    },
-                    child: const Text(
-                      'Cadastrar-se',
-                      style: TextStyle(
-                        color: Colors.blue,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                              color: appThemeData.primaryColor, width: 2),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                              color: appThemeData.primaryColor, width: 2),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 20),
+                    Obx(() => TextField(
+                          obscureText: loginController.obscureText.value,
+                          onChanged: (value) => loginController.setSenha(value),
+                          decoration: InputDecoration(
+                            labelText: 'Senha',
+                            labelStyle:
+                                TextStyle(color: appThemeData.primaryColor),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                loginController.obscureText.value
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                color: appThemeData.primaryColor,
+                              ),
+                              onPressed: () {
+                                loginController.toggleObscureText();
+                              },
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                  color: appThemeData.primaryColor, width: 2),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                  color: appThemeData.primaryColor, width: 2),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                  color: appThemeData.primaryColor, width: 2),
+                            ),
+                          ),
+                        )),
+                    const SizedBox(height: 20,),
+                    Center(child: BottomButtonWidget(text: 'Continuar',onPressed: () => {},disabled: loginController.isFormInvalid)),
+                    const SizedBox(height: 20),
+                    const Text(
+                      'Ainda não tem cadastro?',
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                          Get.offNamed('/cadastro');
+                      },
+                      child: const Text(
+                        'Cadastrar-se',
+                        style: TextStyle(
+                          color: Colors.blue,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

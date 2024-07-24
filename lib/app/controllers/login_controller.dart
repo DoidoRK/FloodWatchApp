@@ -40,4 +40,8 @@ class LoginController extends GetxController {
     print(
         'Obscure text: ${obscureText.value}'); // Adicione esta linha para depuração
   }
+
+  void onBack(){
+    Get.back();
+  }
 }
