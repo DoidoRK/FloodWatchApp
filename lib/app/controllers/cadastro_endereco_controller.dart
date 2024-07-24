@@ -3,11 +3,14 @@ import 'package:get/get.dart';
 
 class CadastroEnderecoController extends GetxController {
   final UserController userController = Get.find<UserController>();
-  var cep = ''.obs;
-  var complemento = ''.obs;
-  var dataNascimento = ''.obs;
-  var isFormInvalid = true.obs;
+  var rua = ''.obs;
   var numero = ''.obs;
+  var complemento = ''.obs;
+  var bairro = ''.obs;
+  var cidade = ''.obs;
+  var cep = ''.obs;
+  var estado = ''.obs;
+  var isFormInvalid = true.obs;
 
   void setCep(String value) {
     cep.value = value;
@@ -24,6 +27,26 @@ class CadastroEnderecoController extends GetxController {
     checkFormIsValid();
   }
 
+  void setRua(String value) {
+    rua.value = value;
+    checkFormIsValid();
+  }
+
+  void setBairro(String value) {
+    bairro.value = value;
+    checkFormIsValid();
+  }
+
+  void setCidade(String value) {
+    cidade.value = value;
+    checkFormIsValid();
+  }
+
+  void setEstado(String value) {
+    estado.value = value;
+    checkFormIsValid();
+  }
+
   void confirmInputs() {
     if (isFormInvalid.value) {
     } else {
@@ -32,7 +55,15 @@ class CadastroEnderecoController extends GetxController {
   }
 
   void checkFormIsValid() {
-    if (cep.isNotEmpty && complemento.isNotEmpty && numero.isNotEmpty) {
+    if (
+      cep.isNotEmpty &&
+      complemento.isNotEmpty &&
+      numero.isNotEmpty
+      // estado.isNotEmpty &&
+      // rua.isNotEmpty &&
+      // bairro.isNotEmpty &&
+      // cidade.isNotEmpty
+      ) {
       isFormInvalid.value = false;
     } else {
       isFormInvalid.value = true;
@@ -44,9 +75,13 @@ class CadastroEnderecoController extends GetxController {
   }
 
   void onNext() {
-    // userController.usuario.nome = nome.value;
-    // userController.usuario.numeroDeTelefone = telefone.value;
-    userController.usuario.dataNascimento = dataNascimento.value;
+    userController.usuario.endereco.rua = rua.value;
+    userController.usuario.endereco.numero = numero.value;
+    userController.usuario.endereco.complemento = complemento.value;
+    userController.usuario.endereco.bairro = bairro.value;
+    userController.usuario.endereco.cidade = cidade.value;
+    userController.usuario.endereco.cep = cep.value;
+    userController.usuario.endereco.estado = estado.value;
     Get.toNamed('/cadastro3');
   }
 }
