@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   final HomeController homeController = Get.put(HomeController());
 
   final List<Widget> _pages = [
-    ProfileWidget(
+    const ProfileWidget(
       userName: "Antônio Junior",
       userPhotoAsset: 'assets/images/Thomas Shelby.png',
     ), // Exemplo de uso de asset local
@@ -15,6 +15,8 @@ class HomePage extends StatelessWidget {
     const Center(child: Text('Relatos Widget')),
     const Center(child: Text('Sobre Widget')),
   ];
+
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {    

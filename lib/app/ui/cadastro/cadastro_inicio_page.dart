@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 class CadastroPage extends StatelessWidget {
   final CadastroController cadastroController = Get.put(CadastroController());
 
+  CadastroPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -4,6 +4,8 @@ import 'package:flood_watch_app/app/controllers/login_controller.dart';
 import 'package:flood_watch_app/app/theme/app_theme.dart';
 
 class LoginPage extends GetView<LoginController> {
+  const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Instanciar o LoginController
@@ -26,7 +28,7 @@ class LoginPage extends GetView<LoginController> {
                     left:
                         20, // Ajuste conforme necessário para a posição do botão
                     child: IconButton(
-                      icon: Icon(Icons.chevron_left, color: Colors.white),
+                      icon: const Icon(Icons.chevron_left, color: Colors.white),
                       iconSize: 60, // Tamanho do ícone desejado
                       onPressed: () {
                         // Ação do botão de voltar
@@ -34,10 +36,10 @@ class LoginPage extends GetView<LoginController> {
                     ),
                   ),
                   // Texto "FloodWatch" dentro do Container azul
-                  Align(
+                  const Align(
                     alignment: Alignment.topCenter,
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 90.0),
+                      padding: EdgeInsets.only(top: 90.0),
                       child: Text(
                         'FloodWatch',
                         style: TextStyle(
@@ -60,8 +62,8 @@ class LoginPage extends GetView<LoginController> {
             right: 0,
             bottom: 0, // Para garantir que ocupe o restante da tela
             child: Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(20),
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
@@ -71,20 +73,20 @@ class LoginPage extends GetView<LoginController> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   // Exibe mensagem de erro, se houver
                   Obx(() {
                     return loginController.errorMessage.isNotEmpty
                         ? Text(
                             loginController.errorMessage.value,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.red,
                               fontWeight: FontWeight.bold,
                             ),
                           )
-                        : SizedBox.shrink();
+                        : const SizedBox.shrink();
                   }),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   TextField(
                     onChanged: (value) => loginController.cpf.value = value,
                     decoration: InputDecoration(
@@ -112,7 +114,7 @@ class LoginPage extends GetView<LoginController> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Obx(() => TextField(
                         obscureText: loginController.obscureText.value,
                         onChanged: (value) =>
@@ -153,7 +155,7 @@ class LoginPage extends GetView<LoginController> {
                         ),
                       )),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
                       // Chama o método de login do controller
@@ -165,17 +167,17 @@ class LoginPage extends GetView<LoginController> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                          const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Login',
                       style: TextStyle(
                         color: Colors.white,
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'Ainda não tem cadastro?',
                     style: TextStyle(
                       color: Colors.grey,
@@ -185,7 +187,7 @@ class LoginPage extends GetView<LoginController> {
                     onPressed: () {
                       // Navegar para a página de cadastro
                     },
-                    child: Text(
+                    child: const Text(
                       'Cadastrar-se',
                       style: TextStyle(
                         color: Colors.blue,

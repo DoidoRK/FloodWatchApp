@@ -10,7 +10,8 @@ class ProfileWidget extends StatelessWidget {
   final VoidCallback? onNotification;
   final VoidCallback? onNetwork;
 
-  ProfileWidget({
+  const ProfileWidget({
+    super.key, 
     required this.userName,
     required this.userPhotoAsset,
     this.onLogout,
