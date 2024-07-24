@@ -1,12 +1,18 @@
 import 'package:get/get.dart';
+//import 'package:flutter/material.dart';
 
 class SplashController extends GetxController {
+  @override
+  void onInit() {
+    super.onInit();
+    _navigateToNextPage();
+  }
 
-// final MyRepository repository;
-// SplashController(this.repository);
-  SplashController();
-  
-  final _obj = ''.obs;
-  set obj(value) => this._obj.value = value;
-  get obj => this._obj.value;
+  void _navigateToNextPage() async {
+    // Simular um atraso para mostrar a tela de splash
+    await Future.delayed(Duration(seconds: 3));
+
+    // Navegar para a tela de loading
+    Get.offNamed('/loading');
+  }
 }
