@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoadingPage extends GetView<LoadingController> {
-  final LoadingController cadastroController = Get.put(LoadingController());
+  final LoadingController registerController = Get.put(LoadingController());
   LoadingPage({super.key});
 
   @override

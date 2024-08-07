@@ -1,7 +1,7 @@
 import 'package:flood_watch_app/app/controllers/user_controller.dart';
 import 'package:get/get.dart';
 
-class CadastroEnderecoController extends GetxController {
+class RegisterAddressController extends GetxController {
   final UserController newUserController = Get.find<UserController>();
   var rua = ''.obs;
   var numero = ''.obs;
@@ -11,6 +11,35 @@ class CadastroEnderecoController extends GetxController {
   var cep = ''.obs;
   var estado = ''.obs;
   var isFormInvalid = true.obs;
+  final List<String> stateNames = [
+    'AC',
+    'AL',
+    'AP',
+    'AM',
+    'BA',
+    'CE',
+    'DF',
+    'ES',
+    'GO',
+    'MA',
+    'MT',
+    'MS',
+    'MG',
+    'PA',
+    'PB',
+    'PR',
+    'PE',
+    'PI',
+    'RJ',
+    'RN',
+    'RS',
+    'RO',
+    'RR',
+    'SC',
+    'SP',
+    'SE',
+    'TO'
+  ];
 
   void setCep(String value) {
     cep.value = value;

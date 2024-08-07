@@ -1,4 +1,5 @@
 import 'package:flood_watch_app/app/controllers/home_controller.dart';
+import 'package:flood_watch_app/app/ui/home_page/widgets/about_widget.dart';
 import 'package:flood_watch_app/app/ui/home_page/widgets/profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,7 +19,7 @@ class HomePage extends StatelessWidget {
       ), // Exemplo de uso de asset local
       const Center(child: Text('Mapa Widget')),
       const Center(child: Text('Relatos Widget')),
-      const Center(child: Text('Sobre Widget')),
+      const AboutWidget(),
     ];
 
 

@@ -1,7 +1,7 @@
 import 'package:flood_watch_app/app/controllers/user_controller.dart';
 import 'package:get/get.dart';
 
-class CadastroLoginController extends GetxController {
+class RegisterLoginController extends GetxController {
   final UserController newUserController = Get.find<UserController>();
 
   // Observáveis para os campos de texto
