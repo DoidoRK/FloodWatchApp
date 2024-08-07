@@ -1,7 +1,7 @@
 import 'package:flood_watch_app/app/controllers/user_controller.dart';
 import 'package:get/get.dart';
 
-class CadastroEnderecoController extends GetxController {
+class RegisterAddressController extends GetxController {
   final UserController newUserController = Get.find<UserController>();
   var rua = ''.obs;
   var numero = ''.obs;

@@ -1,6 +1,6 @@
-import 'package:flood_watch_app/app/ui/cadastro/cadastro_inicio_page.dart';
-import 'package:flood_watch_app/app/ui/cadastro/cadastro_endereco_page.dart';
-import 'package:flood_watch_app/app/ui/cadastro/cadastro_login_page.dart';
+import 'package:flood_watch_app/app/ui/register/register_address_page.dart';
+import 'package:flood_watch_app/app/ui/register/register_initial_page.dart';
+import 'package:flood_watch_app/app/ui/register/cadastro_login_page.dart';
 import 'package:flood_watch_app/app/ui/home_page/home_page.dart';
 import 'package:flood_watch_app/app/ui/loading_page/loading_page.dart';
 import 'package:flood_watch_app/app/ui/login_page/login_page.dart';
@@ -14,8 +14,8 @@ class AppPages {
     GetPage(name: Routes.loading,page: () => LoadingPage(),),
     GetPage(name: Routes.home,page: () => HomePage(),),
     GetPage(name: Routes.login, page: () => const LoginPage()),
-    GetPage(name: Routes.cadastro, page: () => CadastroPage()),
-    GetPage(name: Routes.cadastroEndereco, page: () => CadastroPageEndereco()),
-    GetPage(name: Routes.cadastroLogin, page: () => CadastroPageLogin()),
+    GetPage(name: Routes.cadastro, page: () => RegisterInitialPage()),
+    GetPage(name: Routes.cadastroEndereco, page: () => RegisterAddressPage()),
+    GetPage(name: Routes.cadastroLogin, page: () => RegisterInitialPageLogin()),
   ];
 }
