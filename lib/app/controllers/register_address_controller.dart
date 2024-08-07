@@ -11,6 +11,35 @@ class RegisterAddressController extends GetxController {
   var cep = ''.obs;
   var estado = ''.obs;
   var isFormInvalid = true.obs;
+  final List<String> stateNames = [
+    'AC',
+    'AL',
+    'AP',
+    'AM',
+    'BA',
+    'CE',
+    'DF',
+    'ES',
+    'GO',
+    'MA',
+    'MT',
+    'MS',
+    'MG',
+    'PA',
+    'PB',
+    'PR',
+    'PE',
+    'PI',
+    'RJ',
+    'RN',
+    'RS',
+    'RO',
+    'RR',
+    'SC',
+    'SP',
+    'SE',
+    'TO'
+  ];
 
   void setCep(String value) {
     cep.value = value;

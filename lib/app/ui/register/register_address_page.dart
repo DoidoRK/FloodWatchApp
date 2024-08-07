@@ -5,38 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterAddressPage extends StatelessWidget {
-  final RegisterAddressController cadastroController =
+  final RegisterAddressController registerController =
       Get.put(RegisterAddressController());
-
-  List<DropdownMenuItem<String>> statesDropDownItems = [
-    const DropdownMenuItem(value: 'AC', child: Text('AC')),
-    const DropdownMenuItem(value: 'AL', child: Text('AL')),
-    const DropdownMenuItem(value: 'AP', child: Text('AP')),
-    const DropdownMenuItem(value: 'AM', child: Text('AM')),
-    const DropdownMenuItem(value: 'BA', child: Text('BA')),
-    const DropdownMenuItem(value: 'CE', child: Text('CE')),
-    const DropdownMenuItem(value: 'DF', child: Text('DF')),
-    const DropdownMenuItem(value: 'ES', child: Text('ES')),
-    const DropdownMenuItem(value: 'GO', child: Text('GO')),
-    const DropdownMenuItem(value: 'MA', child: Text('MA')),
-    const DropdownMenuItem(value: 'MT', child: Text('MT')),
-    const DropdownMenuItem(value: 'MS', child: Text('MS')),
-    const DropdownMenuItem(value: 'MG', child: Text('MG')),
-    const DropdownMenuItem(value: 'PA', child: Text('PA')),
-    const DropdownMenuItem(value: 'PB', child: Text('PB')),
-    const DropdownMenuItem(value: 'PR', child: Text('PR')),
-    const DropdownMenuItem(value: 'PE', child: Text('PE')),
-    const DropdownMenuItem(value: 'PI', child: Text('PI')),
-    const DropdownMenuItem(value: 'RJ', child: Text('RJ')),
-    const DropdownMenuItem(value: 'RN', child: Text('RN')),
-    const DropdownMenuItem(value: 'RS', child: Text('RS')),
-    const DropdownMenuItem(value: 'RO', child: Text('RO')),
-    const DropdownMenuItem(value: 'RR', child: Text('RR')),
-    const DropdownMenuItem(value: 'SC', child: Text('SC')),
-    const DropdownMenuItem(value: 'SP', child: Text('SP')),
-    const DropdownMenuItem(value: 'SE', child: Text('SE')),
-    const DropdownMenuItem(value: 'TO', child: Text('TO')),
-  ];
 
   RegisterAddressPage({super.key});
 
@@ -44,7 +14,7 @@ class RegisterAddressPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScaffoldWidget(
       title: "Endereço",
-      onBack: cadastroController.onBack,
+      onBack: registerController.onBack,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -60,7 +30,7 @@ class RegisterAddressPage extends StatelessWidget {
                       labelText: 'Cep',
                       border: OutlineInputBorder(),
                     ),
-                    onChanged: (value) => cadastroController.setCep(value),
+                    onChanged: (value) => registerController.setCep(value),
                   ),
                 ),
                 const SizedBox(width: 20),
@@ -71,8 +41,13 @@ class RegisterAddressPage extends StatelessWidget {
                       labelText: 'Estado',
                       border: OutlineInputBorder(),
                     ),
-                    items: statesDropDownItems,
-                    onChanged: (value) => cadastroController.setCep(value.toString()), // Desabilitado
+                    items: registerController.stateNames.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (value) => registerController.setCep(value.toString()), // Desabilitado
                     disabledHint: const Text('RS'),
                   ),
                 ),
@@ -87,7 +62,7 @@ class RegisterAddressPage extends StatelessWidget {
                   border: OutlineInputBorder(),
                 ),
                 enabled: false,
-                onChanged: (value) => cadastroController.setCidade(value),
+                onChanged: (value) => registerController.setCidade(value),
               ),
               const SizedBox(height: 20),
               TextField(
@@ -96,7 +71,7 @@ class RegisterAddressPage extends StatelessWidget {
                   border: OutlineInputBorder(),
                 ),
                 enabled: false,
-                onChanged: (value) => cadastroController.setBairro(value),
+                onChanged: (value) => registerController.setBairro(value),
               ),
               const SizedBox(height: 20),
               TextField(
@@ -105,7 +80,7 @@ class RegisterAddressPage extends StatelessWidget {
                   border: OutlineInputBorder(),
                 ),
                 enabled: false,
-                onChanged: (value) => cadastroController.setRua(value),
+                onChanged: (value) => registerController.setRua(value),
               ),
               const SizedBox(height: 20),
               TextField(
@@ -113,7 +88,7 @@ class RegisterAddressPage extends StatelessWidget {
                   labelText: 'Complemento',
                   border: OutlineInputBorder(),
                 ),
-                onChanged: (value) => cadastroController.setComplemento(value),
+                onChanged: (value) => registerController.setComplemento(value),
               ),
               const SizedBox(height: 20),
               TextField(
@@ -122,7 +97,7 @@ class RegisterAddressPage extends StatelessWidget {
                   border: OutlineInputBorder(),
                 ),
                 keyboardType: TextInputType.number,
-                onChanged: (value) => cadastroController.setNumero(value),
+                onChanged: (value) => registerController.setNumero(value),
               ),
             ],
           ),
@@ -130,8 +105,8 @@ class RegisterAddressPage extends StatelessWidget {
           Center(
             child: BottomButtonWidget(
                 text: 'Continuar',
-                onPressed: cadastroController.onNext,
-                disabled: cadastroController.isFormInvalid),
+                onPressed: registerController.onNext,
+                disabled: registerController.isFormInvalid),
           ),
         ],
       ),

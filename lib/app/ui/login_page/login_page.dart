@@ -2,7 +2,6 @@ import 'package:flood_watch_app/app/ui/widgets/custom_scaffold_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flood_watch_app/app/controllers/login_controller.dart';
-import 'package:flood_watch_app/app/theme/app_theme.dart';
 import 'package:flood_watch_app/app/ui/widgets/bottom_button_widget.dart';
 
 class LoginPage extends GetView<LoginController> {

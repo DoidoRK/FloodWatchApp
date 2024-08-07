@@ -6,7 +6,7 @@ import 'package:flood_watch_app/app/theme/app_theme.dart';
 import 'package:get/get.dart';
 
 class RegisterInitialPageLogin extends StatelessWidget {
-  final RegisterLoginController cadastroController = Get.put(RegisterLoginController());
+  final RegisterLoginController registerController = Get.put(RegisterLoginController());
 
   RegisterInitialPageLogin({super.key});
 
@@ -14,7 +14,7 @@ class RegisterInitialPageLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScaffoldWidget(
       title: "Login",
-      onBack: cadastroController.onBack,
+      onBack: registerController.onBack,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
@@ -25,7 +25,7 @@ class RegisterInitialPageLogin extends StatelessWidget {
             const SizedBox(height: 20),
                 TextField(
                   keyboardType: TextInputType.datetime,
-                  onChanged: (value) => cadastroController.setCpf(value),
+                  onChanged: (value) => registerController.setCpf(value),
                   decoration: InputDecoration(
                     labelText: 'CPF',
                     border: OutlineInputBorder(
@@ -35,19 +35,19 @@ class RegisterInitialPageLogin extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Obx(() => TextField(
-                      obscureText: cadastroController.obscureText.value,
-                      onChanged: (value) => cadastroController.setSenha(value),
+                      obscureText: registerController.obscureText.value,
+                      onChanged: (value) => registerController.setSenha(value),
                       decoration: InputDecoration(
                         labelText: 'Senha',
                         suffixIcon: IconButton(
                           icon: Icon(
-                            cadastroController.obscureText.value
+                            registerController.obscureText.value
                                 ? Icons.visibility
                                 : Icons.visibility_off,
                             color: appThemeData.primaryColor,
                           ),
                           onPressed: () {
-                            cadastroController.toggleObscureText();
+                            registerController.toggleObscureText();
                           },
                         ),
                         border: OutlineInputBorder(
@@ -62,9 +62,9 @@ class RegisterInitialPageLogin extends StatelessWidget {
               children: [
                 Obx(
                   () => Checkbox(
-                    value: cadastroController.isChecked.value,
+                    value: registerController.isChecked.value,
                     onChanged: (bool? newValue) {
-                      cadastroController.setChecked(newValue ?? false);
+                      registerController.setChecked(newValue ?? false);
                     },
                   ),
                 ),
@@ -97,7 +97,7 @@ class RegisterInitialPageLogin extends StatelessWidget {
             ),
             const SizedBox(height: 160),
             Center(
-              child: BottomButtonWidget(text: 'Continuar', onPressed: cadastroController.onNext, disabled: cadastroController.isFormInvalid),
+              child: BottomButtonWidget(text: 'Continuar', onPressed: registerController.onNext, disabled: registerController.isFormInvalid),
             ),
           ],
         ),

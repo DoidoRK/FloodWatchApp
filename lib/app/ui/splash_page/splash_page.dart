@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SplashPage extends GetView<SplashController> {
-  final SplashController cadastroController = Get.put(SplashController());
+  final SplashController registerController = Get.put(SplashController());
 
   SplashPage({super.key});
 

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterInitialPage extends StatelessWidget {
-  final RegisterController cadastroController = Get.put(RegisterController());
+  final RegisterController registerController = Get.put(RegisterController());
 
   RegisterInitialPage({super.key});
 
@@ -13,7 +13,7 @@ class RegisterInitialPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScaffoldWidget(
       title: "Cadastro",
-      onBack: cadastroController.onBack,
+      onBack: registerController.onBack,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,7 +28,7 @@ class RegisterInitialPage extends StatelessWidget {
               labelText: 'Nome',
               border: OutlineInputBorder(),
             ),
-            onChanged: (value) => cadastroController.setNome(value),
+            onChanged: (value) => registerController.setNome(value),
           ),
           const SizedBox(height: 20),
           TextField(
@@ -36,7 +36,7 @@ class RegisterInitialPage extends StatelessWidget {
               labelText: 'Número de telefone',
             ),
             keyboardType: TextInputType.phone,
-            onChanged: (value) => cadastroController.setTelefone(value),
+            onChanged: (value) => registerController.setTelefone(value),
           ),
           const SizedBox(height: 20),
           TextField(
@@ -45,11 +45,11 @@ class RegisterInitialPage extends StatelessWidget {
               border: OutlineInputBorder(),
             ),
             keyboardType: TextInputType.datetime,
-            onChanged: (value) => cadastroController.setDataNascimento(value),
+            onChanged: (value) => registerController.setDataNascimento(value),
           ),
           const SizedBox(height: 160),
           Center(
-            child: BottomButtonWidget(text: 'Continuar', onPressed: cadastroController.onNext, disabled: cadastroController.isFormInvalid),
+            child: BottomButtonWidget(text: 'Continuar', onPressed: registerController.onNext, disabled: registerController.isFormInvalid),
           ),
         ],
       ),
