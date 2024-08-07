@@ -92,4 +92,11 @@ final ThemeData appThemeData = ThemeData(
     ),
     checkColor: WidgetStateProperty.all(Colors.white), // Cor do ícone de seleção (tick)
   ),
+  expansionTileTheme: const ExpansionTileThemeData(
+    textColor: Colors.blueAccent,
+    collapsedTextColor: Colors.blueAccent,
+    iconColor: Colors.blueAccent,
+    collapsedIconColor: Colors.blueAccent,
+  ),
+  dividerColor: Colors.blueAccent,
 );

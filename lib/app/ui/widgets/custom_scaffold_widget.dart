@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 
 class CustomScaffoldWidget extends StatelessWidget {
   final String title;
-  final VoidCallback onBack;
+  final VoidCallback? onBack;
+  final bool goBackButton;
   final Widget child;
 
-  const CustomScaffoldWidget({super.key, required this.title, required this.onBack, required this.child});
+  const CustomScaffoldWidget({super.key, required this.title, this.onBack, required this.child, this.goBackButton=true});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,7 @@ class CustomScaffoldWidget extends StatelessWidget {
               color: appThemeData.primaryColor,
               child: Stack(
                 children: [
+                  goBackButton ?
                   Positioned(
                     top: 40,
                     left: 20,
@@ -27,7 +29,7 @@ class CustomScaffoldWidget extends StatelessWidget {
                       iconSize: 60,
                       onPressed: onBack,
                     ),
-                  ),
+                  ) : const SizedBox(),
                   Align(
                     alignment: Alignment.topCenter,
                     child: Padding(
@@ -61,8 +63,10 @@ class CustomScaffoldWidget extends StatelessWidget {
                   topRight: Radius.circular(20),
                 ),
               ),
-              child: SingleChildScrollView(
-                child: child,
+              child: SafeArea(
+                child: SingleChildScrollView(
+                  child: child,
+                ),
               ),
             ),
           ),
